@@ -224,7 +224,10 @@ function setRenderMode(mode) {
 	for (var i = 0; i < patch_meshes.length; i++)
 		patch_meshes[i].setRenderMode(mode);
 }
-
+function setbvPatchColor(color){
+	for (var i = 0; i<patch_meshes.length; i++)
+		patch_meshes[i].setColor(color);
+}
 // toggle viewing control meshes
 function toggle_controlMeshes(toggle) {
 	toggle !== 'undefined' ? toggle : false;
@@ -263,4 +266,7 @@ function setRendererSize() {
 		camera.aspect = window.innerWidth/window.innerHeight;
 		camera.updateProjectionMatrix();
 	}
+}
+function doNothing() {
+	return;
 }

@@ -6,7 +6,7 @@ bvPatch = function(patch,parameters){
 	
 	this.renderMode = parameters.renderMode !== undefined ? parameters.renderMode: bvPatch.Normal;
 	this.subdivisionLevel = parameters.subdivisionLevel !== undefined ? parameters.subdivisionLevel : 5;
-	this.color = parameters.color !== undefined ? new THREE.Color( parameters.color ) : new THREE.Color( 0xff1111 );
+	this.color = parameters.color !== undefined ? new THREE.Color( parameters.color ) : new THREE.Color( 0xffffff );
 	this.ambient = parameters.ambient !== undefined ? new THREE.Color( parameters.ambient ) : new THREE.Color( 0x050505 );
 	this.specular = parameters.specular !== undefined ? new THREE.Color( parameters.specular ) : new THREE.Color( 0xAAAAAA );
 	this.shininess = parameters.shininess !== undefined ? parameters.shininess : 30;
@@ -15,7 +15,7 @@ bvPatch = function(patch,parameters){
 	this.maxCrv = parameters.maxCrv !== undefined ? parameters.maxCrv.slice() : [1000,1000,1000,1000];
 	this.minCrv = parameters.minCrv !== undefined ? parameters.minCrv.slice() : [-1000,-1000,-1000,-1000];
 	this.crvType = parameters.crvType !== undefined ? parameters.crvType : 0;
-
+	this.nameee = "THIS NAME"
 	this.hl_step = parameters.hl_step != undefined ? parameters.hl_step : 5.0;
 
 	// generate geometry
@@ -86,7 +86,10 @@ bvPatch.prototype.setRenderMode = function(mode){
 
 	this.updateAttributes();
 }
-
+bvPatch.prototype.setColor = function(color){
+	this.color = new THREE.Color(parseInt(color, 16));
+	this.updateAttributes();
+}
 bvPatch.prototype.setCurvatureRange = function(minc,maxc){
 	for(var i = 0; i < 4; i++){
 		this.maxCrv[i] = isNaN(maxc[i])?1000:maxc[i];
