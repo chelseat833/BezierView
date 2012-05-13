@@ -250,6 +250,8 @@ function toggle_patches(toggle) {
 	THREE.SceneUtils.showHierarchy(patch_object,show_patch);
 }
 
+
+
 // set the curvature scale range
 function setPatchCurvatureRange(minc,maxc){
 	for(var i = 0; i < patch_meshes.length; i++){
@@ -267,6 +269,4 @@ function setRendererSize() {
 		camera.updateProjectionMatrix();
 	}
 }
-function doNothing() {
-	return;
-}
+

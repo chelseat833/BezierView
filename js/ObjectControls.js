@@ -130,6 +130,7 @@ THREE.ObjectControls = function ( object, camera, domElement ) {
 			
 
 			quaternion.multiplyVector3( _rotateEnd );
+			
 
 			if ( _this.staticMoving ) {
 
@@ -140,6 +141,13 @@ THREE.ObjectControls = function ( object, camera, domElement ) {
 				quaternion.setFromAxisAngle( axis, angle * ( _this.dynamicDampingFactor - 1.0 ) );
 				quaternion.multiplyVector3( _rotateStart );
 
+			}
+			//Loop to update highlight and reflection lines on rotating
+
+			meshes = _this.object.children[0].children; 
+			// meshes is the list of patch_meshes created in Render; object.children[0] is the patch_object, whose children are these meshes
+			for (var i = 0; i<meshes.length; i++){
+				meshes[i].updateHighlight();
 			}
 
 		}

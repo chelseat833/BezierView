@@ -15,7 +15,6 @@ bvPatch = function(patch,parameters){
 	this.maxCrv = parameters.maxCrv !== undefined ? parameters.maxCrv.slice() : [1000,1000,1000,1000];
 	this.minCrv = parameters.minCrv !== undefined ? parameters.minCrv.slice() : [-1000,-1000,-1000,-1000];
 	this.crvType = parameters.crvType !== undefined ? parameters.crvType : 0;
-	this.nameee = "THIS NAME"
 	this.hl_step = parameters.hl_step != undefined ? parameters.hl_step : 5.0;
 
 	// generate geometry
